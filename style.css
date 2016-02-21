@@ -8,14 +8,28 @@ body {
   line-height: 1.6;
 }
 
+h1 { font-size: 2em; }
+
 h1, h2, h3, h4, strong {
   font-weight: 600;
   color: #2c3e50;
 }
 
+h2, h3 {
+  position: relative;
+}
+
+h2:before, h3:before {
+  position: absolute;
+  content: "#";
+  font-weight: bold;
+  color: #1980e6;
+  left: -.8em;
+}
+
 code, pre {
   font-family: 'Roboto Mono', Monaco, courier, monospace;
-  font-size: 0.8em;
+  font-size: 12px;
   background-color: #f8f8f8;
   -webkit-font-smoothing: initial;
   -moz-osx-font-smoothing: initial;
@@ -38,11 +52,23 @@ pre > code, pre > code.hljs {
 }
 
 blockquote {
-
+  position: relative;
+  margin: 0;
+  padding: .8em .8em .8em 3em;
+  background-color: #f8f8f8;
+}
+blockquote > p { margin: 0; }
+blockquote:before {
+  content: "”";
+  position: absolute;
+  left: 12px;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #828E99;
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
 }
 
 a {
@@ -58,9 +84,10 @@ a:hover, a:active {
 }
 
 .site-wrapper {
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
   max-width: 600px;
   margin: 0 auto;
+  padding: 0 25px;
 }
 
 .nav {
@@ -72,6 +99,10 @@ a:hover, a:active {
 .nav > a {
   margin: 0 8px;
   color: #828E99;
+  transition: color .3s;
+}
+.nav > a:hover {
+  color: #2c3e50;
 }
 
 .title {
